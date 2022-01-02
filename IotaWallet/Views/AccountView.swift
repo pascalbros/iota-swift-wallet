@@ -1,0 +1,73 @@
+import SwiftUI
+
+struct AccountView: View {
+    @StateObject var viewModel: AccountViewModel
+    var body: some View {
+        switch viewModel.status {
+        case .loading:
+            ProgressView()
+        default:
+            if let account = viewModel.account {
+                SingleAccountView(title: account.name) {
+                    print("Selected \(account.name)")
+                }
+            } else {
+                NoAccountView() {
+                    viewModel.createAccount()
+                }
+            }
+        }
+    }
+}
+
+struct SingleAccountView: View {
+    @State var title: String
+    var onSelected: () -> Void
+    var body: some View {
+        GenericAccountView(title: title,
+                           label: AnyView(
+                                Text(String(title.first ?? "-"))
+                                .font(.title.weight(.bold))
+                                .foregroundColor(.white)),
+                           onSelected: onSelected)
+    }
+}
+
+struct NoAccountView: View {
+    var onSelected: () -> Void
+    var body: some View {
+        GenericAccountView(title: "Add an account",
+                           label: AnyView(
+                                    Image(systemName: "plus")
+                                        .renderingMode(.template)
+                                        .font(.title.weight(.bold))
+                                        .foregroundColor(.white)),
+                           onSelected: onSelected)
+    }
+}
+
+struct GenericAccountView: View {
+    @State var title: String
+    @State var label: AnyView
+    var onSelected: () -> Void
+    var body: some View {
+        VStack {
+            Button(action: onSelected, label: {
+                label
+            })
+            .frame(width: UIScreen.main.bounds.width*0.3, height: UIScreen.main.bounds.width*0.3, alignment: .center)
+            .background(Color.accentColor)
+            .clipShape(Circle())
+            .shadow(color: .appText.opacity(0.4), radius: 30, x: 0, y: 0)
+            Text(title)
+                .foregroundColor(.appText)
+                .font(.title)
+        }
+    }
+}
+
+struct AccountView_Previews: PreviewProvider {
+    static var previews: some View {
+        AccountView(viewModel: AccountViewModel()).previewDevice("iPhone 12").preferredColorScheme(.light)
+    }
+}

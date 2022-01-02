@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "IOTAWallet",
+        "repositoryURL": "git@github.com:pascalbros/iota-wallet.rs-swift-binding.git",
+        "state": {
+          "branch": "main",
+          "revision": "ca7face70c35f8a9fb5fa2bb1aaebbf547e8ce15",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

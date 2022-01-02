@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8668A796278211F50054A28D /* IOTAWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 8668A795278211F50054A28D /* IOTAWallet */; };
+		8668A797278211F50054A28D /* IOTAWallet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8668A795278211F50054A28D /* IOTAWallet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		86B22C362780DA6E008BED50 /* IotaWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C352780DA6E008BED50 /* IotaWalletApp.swift */; };
 		86B22C382780DA6E008BED50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C372780DA6E008BED50 /* ContentView.swift */; };
 		86B22C3A2780DA70008BED50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86B22C392780DA70008BED50 /* Assets.xcassets */; };
@@ -14,10 +16,29 @@
 		86B22C452780DAE3008BED50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C442780DAE3008BED50 /* MainView.swift */; };
 		86B22C472780DD58008BED50 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C462780DD58008BED50 /* BalanceView.swift */; };
 		86B22C4A2780E0A1008BED50 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C492780E0A1008BED50 /* ColorExtensions.swift */; };
+		86B22C4E2781C167008BED50 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C4D2781C167008BED50 /* AccountView.swift */; };
+		86B22C52278201BB008BED50 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C51278201BB008BED50 /* Account.swift */; };
+		86B22C54278202E4008BED50 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C53278202E4008BED50 /* AccountViewModel.swift */; };
+		86B22C5627820A10008BED50 /* ViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C5527820A10008BED50 /* ViewStatus.swift */; };
+		86B22C5B278210B3008BED50 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C5A278210B3008BED50 /* Wallet.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8668A798278211F50054A28D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8668A797278211F50054A28D /* IOTAWallet in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		86B22C322780DA6E008BED50 /* IotaWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IotaWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86B22C322780DA6E008BED50 /* IotaWalletApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IotaWalletApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B22C352780DA6E008BED50 /* IotaWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IotaWalletApp.swift; sourceTree = "<group>"; };
 		86B22C372780DA6E008BED50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		86B22C392780DA70008BED50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -25,6 +46,11 @@
 		86B22C442780DAE3008BED50 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		86B22C462780DD58008BED50 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		86B22C492780E0A1008BED50 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		86B22C4D2781C167008BED50 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		86B22C51278201BB008BED50 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		86B22C53278202E4008BED50 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		86B22C5527820A10008BED50 /* ViewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStatus.swift; sourceTree = "<group>"; };
+		86B22C5A278210B3008BED50 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,24 +58,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8668A796278211F50054A28D /* IOTAWallet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8668A794278211F50054A28D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		86B22C292780DA6E008BED50 = {
 			isa = PBXGroup;
 			children = (
 				86B22C342780DA6E008BED50 /* IotaWallet */,
 				86B22C332780DA6E008BED50 /* Products */,
+				8668A794278211F50054A28D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		86B22C332780DA6E008BED50 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				86B22C322780DA6E008BED50 /* IotaWallet.app */,
+				86B22C322780DA6E008BED50 /* IotaWalletApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				86B22C482780E08F008BED50 /* Utils */,
+				86B22C5027820179008BED50 /* ViewModels */,
+				86B22C4F2782016F008BED50 /* Models */,
 				86B22C432780DABB008BED50 /* Views */,
 				86B22C352780DA6E008BED50 /* IotaWalletApp.swift */,
 				86B22C372780DA6E008BED50 /* ContentView.swift */,
@@ -80,6 +117,7 @@
 			children = (
 				86B22C442780DAE3008BED50 /* MainView.swift */,
 				86B22C462780DD58008BED50 /* BalanceView.swift */,
+				86B22C4D2781C167008BED50 /* AccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -88,28 +126,50 @@
 			isa = PBXGroup;
 			children = (
 				86B22C492780E0A1008BED50 /* ColorExtensions.swift */,
+				86B22C5527820A10008BED50 /* ViewStatus.swift */,
+				86B22C5A278210B3008BED50 /* Wallet.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		86B22C4F2782016F008BED50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86B22C51278201BB008BED50 /* Account.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		86B22C5027820179008BED50 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				86B22C53278202E4008BED50 /* AccountViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		86B22C312780DA6E008BED50 /* IotaWallet */ = {
+		86B22C312780DA6E008BED50 /* IotaWalletApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 86B22C402780DA70008BED50 /* Build configuration list for PBXNativeTarget "IotaWallet" */;
+			buildConfigurationList = 86B22C402780DA70008BED50 /* Build configuration list for PBXNativeTarget "IotaWalletApp" */;
 			buildPhases = (
 				86B22C2E2780DA6E008BED50 /* Sources */,
 				86B22C2F2780DA6E008BED50 /* Frameworks */,
 				86B22C302780DA6E008BED50 /* Resources */,
+				8668A798278211F50054A28D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = IotaWallet;
+			name = IotaWalletApp;
+			packageProductDependencies = (
+				8668A795278211F50054A28D /* IOTAWallet */,
+			);
 			productName = IotaWallet;
-			productReference = 86B22C322780DA6E008BED50 /* IotaWallet.app */;
+			productReference = 86B22C322780DA6E008BED50 /* IotaWalletApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 86B22C2D2780DA6E008BED50 /* Build configuration list for PBXProject "IotaWallet" */;
+			buildConfigurationList = 86B22C2D2780DA6E008BED50 /* Build configuration list for PBXProject "IotaWalletApp" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -136,11 +196,14 @@
 				Base,
 			);
 			mainGroup = 86B22C292780DA6E008BED50;
+			packageReferences = (
+				86B22C5927820F32008BED50 /* XCRemoteSwiftPackageReference "iota-wallet.rs-swift-binding" */,
+			);
 			productRefGroup = 86B22C332780DA6E008BED50 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				86B22C312780DA6E008BED50 /* IotaWallet */,
+				86B22C312780DA6E008BED50 /* IotaWalletApp */,
 			);
 		};
 /* End PBXProject section */
@@ -162,11 +225,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B22C5B278210B3008BED50 /* Wallet.swift in Sources */,
+				86B22C5627820A10008BED50 /* ViewStatus.swift in Sources */,
+				86B22C4E2781C167008BED50 /* AccountView.swift in Sources */,
 				86B22C382780DA6E008BED50 /* ContentView.swift in Sources */,
+				86B22C54278202E4008BED50 /* AccountViewModel.swift in Sources */,
 				86B22C4A2780E0A1008BED50 /* ColorExtensions.swift in Sources */,
 				86B22C472780DD58008BED50 /* BalanceView.swift in Sources */,
 				86B22C452780DAE3008BED50 /* MainView.swift in Sources */,
 				86B22C362780DA6E008BED50 /* IotaWalletApp.swift in Sources */,
+				86B22C52278201BB008BED50 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +420,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		86B22C2D2780DA6E008BED50 /* Build configuration list for PBXProject "IotaWallet" */ = {
+		86B22C2D2780DA6E008BED50 /* Build configuration list for PBXProject "IotaWalletApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				86B22C3E2780DA70008BED50 /* Debug */,
@@ -361,7 +429,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		86B22C402780DA70008BED50 /* Build configuration list for PBXNativeTarget "IotaWallet" */ = {
+		86B22C402780DA70008BED50 /* Build configuration list for PBXNativeTarget "IotaWalletApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				86B22C412780DA70008BED50 /* Debug */,
@@ -371,6 +439,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86B22C5927820F32008BED50 /* XCRemoteSwiftPackageReference "iota-wallet.rs-swift-binding" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:pascalbros/iota-wallet.rs-swift-binding.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8668A795278211F50054A28D /* IOTAWallet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86B22C5927820F32008BED50 /* XCRemoteSwiftPackageReference "iota-wallet.rs-swift-binding" */;
+			productName = IOTAWallet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86B22C2A2780DA6E008BED50 /* Project object */;
 }
