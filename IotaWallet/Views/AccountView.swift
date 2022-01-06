@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct AccountView: View {
-    @StateObject var viewModel: AccountViewModel
+struct AccountView<VM>: View where VM: IAccountViewModel {
+    @StateObject var viewModel: VM
     var body: some View {
         switch viewModel.status {
         case .loading:
@@ -67,7 +67,13 @@ struct GenericAccountView: View {
 }
 
 struct AccountView_Previews: PreviewProvider {
+    
+    class _AccountViewModel: IAccountViewModel {
+        var account: Account? = Account(name: "Pascal")
+        var status: ViewStatus = .data
+        func createAccount() { }
+    }
     static var previews: some View {
-        AccountView(viewModel: AccountViewModel()).previewDevice("iPhone 12").preferredColorScheme(.light)
+        AccountView(viewModel: _AccountViewModel()).previewDevice("iPhone 12").preferredColorScheme(.light)
     }
 }

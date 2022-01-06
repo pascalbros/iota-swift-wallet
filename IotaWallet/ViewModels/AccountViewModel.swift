@@ -1,8 +1,16 @@
 import Foundation
 import SwiftUI
+#if canImport(_IOTAWallet)
 import IOTAWallet
+#endif
 
-class AccountViewModel: ObservableObject {
+protocol IAccountViewModel: ObservableObject {
+    var account: Account? { get }
+    var status: ViewStatus { get }
+    func createAccount()
+}
+
+class AccountViewModel: IAccountViewModel {
     @Published var account: Account?
     @Published var status: ViewStatus = .loading
     
@@ -11,6 +19,7 @@ class AccountViewModel: ObservableObject {
     }
     
     func retrieveAccount() {
+    #if canImport(_IOTAWallet)
         if sharedWallet == nil {
             sharedWallet = IOTAAccountManager(storagePath: nil, startsAutomatically: true)
         }
@@ -27,6 +36,7 @@ class AccountViewModel: ObservableObject {
                 print(error)
             }
         }
+    #endif
     }
     
     func createAccount() {
