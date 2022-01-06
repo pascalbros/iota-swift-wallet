@@ -7,9 +7,13 @@ struct MainView: View {
                 .tabItem {
                     Label("Balance", systemImage: "creditcard")
                 }
-            ContentView()
+            ReceiveView()
                 .tabItem {
                     Label("Receive", systemImage: "banknote")
+                }
+            ContentView()
+                .tabItem {
+                    Label("Send", systemImage: "paperplane")
                 }
         }
     }
