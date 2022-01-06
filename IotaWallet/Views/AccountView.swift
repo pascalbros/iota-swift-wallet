@@ -24,12 +24,15 @@ struct SingleAccountView: View {
     @State var title: String
     var onSelected: () -> Void
     var body: some View {
-        GenericAccountView(title: title,
-                           label: AnyView(
-                                Text(String(title.first ?? "-"))
-                                .font(.title.weight(.bold))
-                                .foregroundColor(.white)),
-                           onSelected: onSelected)
+        NavigationView {
+            GenericAccountView(title: title,
+                               label: AnyView(
+                                    Text(String(title.first ?? "-"))
+                                    .font(.title.weight(.bold))
+                                    .foregroundColor(.white)),
+                               onSelected: onSelected)
+                                    .navigationTitle("Accounts")
+        }
     }
 }
 
@@ -74,6 +77,6 @@ struct AccountView_Previews: PreviewProvider {
         func createAccount() { }
     }
     static var previews: some View {
-        AccountView(viewModel: _AccountViewModel()).previewDevice("iPhone 12").preferredColorScheme(.light)
+        AccountView(viewModel: _AccountViewModel()).preferredColorScheme(.light)
     }
 }
