@@ -5,12 +5,15 @@ import IOTAWallet
 protocol IAccountViewModel: ObservableObject {
     var account: Account? { get }
     var status: ViewStatus { get }
+    var goToCreateAccount: Bool { get set }
+    func buildCreateAccount() -> AnyView
     func createAccount()
 }
 
 class AccountViewModel: IAccountViewModel {
     @Published var account: Account?
     @Published var status: ViewStatus = .loading
+    @Published var goToCreateAccount: Bool = false
     
     init() {
         retrieveAccount()
@@ -30,6 +33,10 @@ class AccountViewModel: IAccountViewModel {
     }
     
     func createAccount() {
-        
+        goToCreateAccount = true
+    }
+    
+    func buildCreateAccount() -> AnyView {
+        AnyView(NewAccountView())
     }
 }

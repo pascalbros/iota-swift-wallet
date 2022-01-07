@@ -2,18 +2,16 @@ import SwiftUI
 
 struct NewAccountView: View {
     var body: some View {
-        NavigationView {
-            VStack(spacing: 50) {
-                ButtonView(title: "I need to generate a new one", color: Color.orange) {
-                    
-                }
-                ButtonView(title: "I have a mnemonic phrase", color: Color.accentColor) {
-                    
-                }
+        VStack(spacing: 50) {
+            ButtonView(title: "I need to generate a new one", color: Color.orange) {
+                
             }
-            .padding(30)
-            .navigationTitle("Seed")
+            ButtonView(title: "I have a mnemonic phrase", color: Color.accentColor) {
+                
+            }
         }
+        .padding(30)
+        .navigationTitle("Seed")
     }
 }
 

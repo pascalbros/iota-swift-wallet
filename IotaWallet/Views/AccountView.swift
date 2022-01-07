@@ -3,20 +3,24 @@ import SwiftUI
 struct AccountView<VM>: View where VM: IAccountViewModel {
     @StateObject var viewModel: VM
     var body: some View {
-        switch viewModel.status {
-        case .loading:
-            ProgressView()
-        default:
-            if let account = viewModel.account {
-                SingleAccountView(title: account.name) {
-                    print("Selected \(account.name)")
-                }
-            } else {
-                NoAccountView() {
-                    viewModel.createAccount()
+        VStack {
+            switch viewModel.status {
+            case .loading:
+                ProgressView()
+            default:
+                if let account = viewModel.account {
+                    SingleAccountView(title: account.name) {
+                        print("Selected \(account.name)")
+                    }
+                } else {
+                    NoAccountView() {
+                        viewModel.createAccount()
+                    }
                 }
             }
+            NavigationLink(destination: viewModel.buildCreateAccount(), isActive: $viewModel.goToCreateAccount) { EmptyView() }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -72,11 +76,20 @@ struct GenericAccountView: View {
 struct AccountView_Previews: PreviewProvider {
     
     class _AccountViewModel: IAccountViewModel {
-        var account: Account? = Account(name: "Pascal")
-        var status: ViewStatus = .data
-        func createAccount() { }
+        @Published var goToCreateAccount: Bool = false
+        @Published var account: Account? = nil//Account(name: "Pascal")
+        @Published var status: ViewStatus = .data
+        func createAccount() {
+            goToCreateAccount = true
+        }
+        func buildCreateAccount() -> AnyView {
+            AnyView(Text("OK"))
+        }
+        
     }
     static var previews: some View {
-        AccountView(viewModel: _AccountViewModel()).preferredColorScheme(.light)
+        NavigationView {
+            AccountView(viewModel: _AccountViewModel()).preferredColorScheme(.light)
+        }.navigationBarHidden(true)
     }
 }
