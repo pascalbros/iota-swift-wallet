@@ -14,6 +14,8 @@
 		867B1C5627874EA1001807B5 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867B1C5527874EA1001807B5 /* PasswordView.swift */; };
 		867B1C5827875938001807B5 /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867B1C5727875938001807B5 /* ReceiveView.swift */; };
 		867B1C5A27875A63001807B5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867B1C5927875A63001807B5 /* Utils.swift */; };
+		867B1C622787B976001807B5 /* IOTAWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 867B1C612787B976001807B5 /* IOTAWallet */; };
+		867B1C632787B98D001807B5 /* IOTAWallet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 867B1C612787B976001807B5 /* IOTAWallet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		86B22C362780DA6E008BED50 /* IotaWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C352780DA6E008BED50 /* IotaWalletApp.swift */; };
 		86B22C382780DA6E008BED50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C372780DA6E008BED50 /* ContentView.swift */; };
 		86B22C3A2780DA70008BED50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86B22C392780DA70008BED50 /* Assets.xcassets */; };
@@ -35,6 +37,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				867B1C632787B98D001807B5 /* IOTAWallet in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867B1C622787B976001807B5 /* IOTAWallet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +187,7 @@
 			);
 			name = IotaWalletApp;
 			packageProductDependencies = (
+				867B1C612787B976001807B5 /* IOTAWallet */,
 			);
 			productName = IotaWallet;
 			productReference = 86B22C322780DA6E008BED50 /* IotaWalletApp.app */;
@@ -213,7 +218,7 @@
 			);
 			mainGroup = 86B22C292780DA6E008BED50;
 			packageReferences = (
-				86B22C5927820F32008BED50 /* XCRemoteSwiftPackageReference "iota-wallet.rs-swift-binding" */,
+				867B1C602787B976001807B5 /* XCRemoteSwiftPackageReference "iota-wallet.rs-swift-binding" */,
 			);
 			productRefGroup = 86B22C332780DA6E008BED50 /* Products */;
 			projectDirPath = "";
@@ -466,7 +471,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		86B22C5927820F32008BED50 /* XCRemoteSwiftPackageReference "iota-wallet.rs-swift-binding" */ = {
+		867B1C602787B976001807B5 /* XCRemoteSwiftPackageReference "iota-wallet.rs-swift-binding" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:pascalbros/iota-wallet.rs-swift-binding.git";
 			requirement = {
@@ -475,6 +480,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		867B1C612787B976001807B5 /* IOTAWallet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 867B1C602787B976001807B5 /* XCRemoteSwiftPackageReference "iota-wallet.rs-swift-binding" */;
+			productName = IOTAWallet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86B22C2A2780DA6E008BED50 /* Project object */;
 }

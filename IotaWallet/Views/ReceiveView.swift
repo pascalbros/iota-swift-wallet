@@ -1,10 +1,3 @@
-//
-//  ReceiveView.swift
-//  IotaWalletApp
-//
-//  Created by Pasquale Ambrosini on 06/01/22.
-//
-
 import SwiftUI
 
 struct ReceiveView: View {

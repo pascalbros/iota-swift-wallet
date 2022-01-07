@@ -1,6 +1,3 @@
-import Foundation
-#if canImport(_IOTAWallet)
 import IOTAWallet
 
-var sharedWallet: IOTAAccountManager?
-#endif
+var AppWallet: IOTAAccountManager = IOTAAccountManager(storagePath: nil, startsAutomatically: true)
