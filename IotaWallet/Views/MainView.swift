@@ -7,7 +7,7 @@ struct MainView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            BalanceView(balance: 256)
+            BalanceView(viewModel: BalanceViewModel())
                 .tabItem {
                     Label(titles[0], systemImage: "creditcard")
                 }

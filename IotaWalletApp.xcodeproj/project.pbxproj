@@ -24,6 +24,7 @@
 		86A59E22278851A6004D31AF /* IOTAWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 86A59E21278851A6004D31AF /* IOTAWallet */; };
 		86A59E23278851A6004D31AF /* IOTAWallet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 86A59E21278851A6004D31AF /* IOTAWallet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		86A59E2627885390004D31AF /* IOTAWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 86A59E2527885390004D31AF /* IOTAWallet */; };
+		86AD95112789FABC0002F5CF /* BalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AD95102789FABC0002F5CF /* BalanceViewModel.swift */; };
 		86B22C362780DA6E008BED50 /* IotaWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C352780DA6E008BED50 /* IotaWalletApp.swift */; };
 		86B22C382780DA6E008BED50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C372780DA6E008BED50 /* ContentView.swift */; };
 		86B22C3A2780DA70008BED50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86B22C392780DA70008BED50 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		867B1C5527874EA1001807B5 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		867B1C5727875938001807B5 /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
 		867B1C5927875A63001807B5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		86AD95102789FABC0002F5CF /* BalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
 		86B22C322780DA6E008BED50 /* IotaWalletApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IotaWalletApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B22C352780DA6E008BED50 /* IotaWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IotaWalletApp.swift; sourceTree = "<group>"; };
 		86B22C372780DA6E008BED50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				862B53852788FE10003A1CF3 /* NewAccountViewModel.swift */,
 				862B5387278900DA003A1CF3 /* NewSeedViewModel.swift */,
 				862B53892789D1D4003A1CF3 /* AddSeedViewModel.swift */,
+				86AD95102789FABC0002F5CF /* BalanceViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				86B22C452780DAE3008BED50 /* MainView.swift in Sources */,
 				86B22C362780DA6E008BED50 /* IotaWalletApp.swift in Sources */,
 				867B1C502785C357001807B5 /* NewSeedView.swift in Sources */,
+				86AD95112789FABC0002F5CF /* BalanceViewModel.swift in Sources */,
 				86B22C52278201BB008BED50 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

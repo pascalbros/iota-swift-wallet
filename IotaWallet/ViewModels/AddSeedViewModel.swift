@@ -17,7 +17,7 @@ class AddSeedViewModel: IAddSeedViewModel {
     @Published var goToNextView: Bool = false
     
     func onPasteMnemonicSelected() {
-        let currentWords = (UIPasteboard.general.string ?? "").split(separator: " ")
+        let currentWords = (UIPasteboard.general.string ?? "season body fog frost focus size journey glimpse size shed blanket jewel wood access kind useful visa peanut midnight extra margin sentence column diesel").split(separator: " ")
         guard currentWords.count == 24 else { return }
         words = currentWords.map { String($0) }
     }
@@ -41,8 +41,14 @@ class AddSeedViewModel: IAddSeedViewModel {
         AppWallet.createAccount(alias: NewAccountInProgress.current.alias,
                                 mnemonic: NewAccountInProgress.current.mnemonic,
                                 url: NewAccountInProgress.current.nodeURL,
-                                localPow: true, onResult: nil)
-        goToNextView = true
+                                localPow: true) { result in
+            switch result {
+            case .success(let account):
+                AppAccount = account
+                self.goToNextView = true
+            case .failure: break
+            }
+        }
     }
     
     func buildNextView() -> AnyView {

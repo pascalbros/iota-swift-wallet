@@ -1,19 +1,28 @@
 import SwiftUI
 
-struct BalanceView: View {
-    @State var balance: Int
+struct BalanceView<VM>: View where VM: IBalanceViewModel {
+    
+    @StateObject var viewModel: VM
+    
     var body: some View {
-        CardView(title: "Balance", details: BalanceView.getBalance(balance))
-    }
-                 
-    fileprivate static func getBalance(_ value: Int) -> String {
-        "\(value) Mi"
+        ZStack {
+            if viewModel.status == .loading {
+                ProgressView()
+            } else {
+                CardView(title: "Balance", details: viewModel.formattedBalance) {
+                    viewModel.onReload()
+                }
+            }
+        }.onAppear {
+            viewModel.onReload()
+        }
     }
 }
 
 struct CardView: View {
     @State var title: String
     @State var details: String
+    var onReload: (() -> Void)
     
     var body: some View {
         ZStack {
@@ -28,6 +37,22 @@ struct CardView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 33).bold())
             }
+            GeometryReader { geometry in
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                onReload()
+                            }, label: {
+                                Image(systemName: "arrow.clockwise").renderingMode(.template).padding()
+                            })
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                    }
+
+                }
+                .edgesIgnoringSafeArea(.all)
         }
         .padding(20)
         .frame(height: 200, alignment: .center)
@@ -35,7 +60,24 @@ struct CardView: View {
 }
 
 struct BalanceView_Previews: PreviewProvider {
+    class _BalanceViewModel: IBalanceViewModel {
+        
+        @Published var status: ViewStatus = .data
+        @Published var balance: Int = 0 {
+            didSet { formattedBalance = "\(balance) Mi" }
+        }
+        @Published var formattedBalance: String  = ""
+        
+        func onReload() {
+            getBalance()
+        }
+        
+        fileprivate func getBalance() {
+            balance = 125
+        }
+    }
+
     static var previews: some View {
-        BalanceView(balance: 256)
+        BalanceView(viewModel: _BalanceViewModel())
     }
 }

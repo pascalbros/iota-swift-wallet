@@ -18,7 +18,7 @@ struct AddSeedView<VM>: View where VM: IAddSeedViewModel {
                         .disableAutocorrection(true)
                 }
             }
-            ButtonView(title: "Paste all words", color: .orange) {
+            ButtonView(title: "Paste words", color: .orange) {
                 viewModel.onPasteMnemonicSelected()
             }
             ButtonView(title: "Continue", color: .accentColor) {

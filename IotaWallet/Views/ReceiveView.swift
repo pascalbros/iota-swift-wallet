@@ -32,7 +32,7 @@ private struct AddressReceiveView: View {
                 .interpolation(.none)
                 .resizable()
                 .scaledToFit()
-                .frame(width: .infinity, height: 200)
+                .frame(height: 200)
             Text(address)
                 .font(.title3)
                 .frame(alignment: .center)

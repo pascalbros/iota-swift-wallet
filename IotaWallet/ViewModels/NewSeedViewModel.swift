@@ -46,7 +46,12 @@ class NewSeedViewModel: INewSeedViewModel {
                                 mnemonic: NewAccountInProgress.current.mnemonic,
                                 url: NewAccountInProgress.current.nodeURL,
                                 localPow: true) { result in
-            self.goToNextView = true
+            switch result {
+            case .success(let account):
+                AppAccount = account
+                self.goToNextView = true
+            case .failure: break
+            }
         }
     }
     

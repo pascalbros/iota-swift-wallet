@@ -10,15 +10,16 @@ struct AccountView<VM>: View where VM: IAccountViewModel {
             default:
                 if let account = viewModel.account {
                     SingleAccountView(title: account.name) {
-                        print("Selected \(account.name)")
+                        viewModel.onAccountSelected()
                     }
                 } else {
                     NoAccountView() {
-                        viewModel.createAccount()
+                        viewModel.onCreateAccountSelected()
                     }
                 }
             }
             NavigationLink(destination: viewModel.buildCreateAccount(), isActive: $viewModel.goToCreateAccount) { EmptyView() }
+            NavigationLink(destination: viewModel.buildAccount(), isActive: $viewModel.goToAccount) { EmptyView() }
         }
         .navigationBarHidden(true)
     }
@@ -75,15 +76,21 @@ struct AccountView_Previews: PreviewProvider {
     
     class _AccountViewModel: IAccountViewModel {
         @Published var goToCreateAccount: Bool = false
+        @Published var goToAccount: Bool = false
         @Published var account: Account? = nil//Account(name: "Pascal")
         @Published var status: ViewStatus = .data
-        func createAccount() {
+        func onCreateAccountSelected() {
+            goToAccount = true
+        }
+        func onAccountSelected() {
             goToCreateAccount = true
         }
         func buildCreateAccount() -> AnyView {
-            AnyView(Text("OK"))
+            AnyView(Text("New account"))
         }
-        
+        func buildAccount() -> AnyView {
+            AnyView(Text("Account"))
+        }
     }
     static var previews: some View {
         NavigationView {
