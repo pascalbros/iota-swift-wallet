@@ -27,6 +27,6 @@ class NewAccountViewModel: INewAccountViewModel {
     }
     
     func buildAddSeedView() -> AnyView {
-        return AnyView(AddSeedView())
+        return AnyView(AddSeedView(viewModel: AddSeedViewModel()))
     }
 }

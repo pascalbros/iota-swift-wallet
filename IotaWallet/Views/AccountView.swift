@@ -20,7 +20,7 @@ struct AccountView<VM>: View where VM: IAccountViewModel {
             }
             NavigationLink(destination: viewModel.buildCreateAccount(), isActive: $viewModel.goToCreateAccount) { EmptyView() }
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 

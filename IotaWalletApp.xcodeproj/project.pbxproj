@@ -13,6 +13,7 @@
 		862B53842788E981003A1CF3 /* NewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862B53832788E981003A1CF3 /* NewAccount.swift */; };
 		862B53862788FE10003A1CF3 /* NewAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862B53852788FE10003A1CF3 /* NewAccountViewModel.swift */; };
 		862B5388278900DA003A1CF3 /* NewSeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862B5387278900DA003A1CF3 /* NewSeedViewModel.swift */; };
+		862B538A2789D1D4003A1CF3 /* AddSeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862B53892789D1D4003A1CF3 /* AddSeedViewModel.swift */; };
 		8668A79A2784A9800054A28D /* NewAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8668A7992784A9800054A28D /* NewAccountView.swift */; };
 		867B1C502785C357001807B5 /* NewSeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867B1C4F2785C357001807B5 /* NewSeedView.swift */; };
 		867B1C522785DBEB001807B5 /* AddSeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867B1C512785DBEB001807B5 /* AddSeedView.swift */; };
@@ -58,6 +59,7 @@
 		862B53832788E981003A1CF3 /* NewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccount.swift; sourceTree = "<group>"; };
 		862B53852788FE10003A1CF3 /* NewAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountViewModel.swift; sourceTree = "<group>"; };
 		862B5387278900DA003A1CF3 /* NewSeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSeedViewModel.swift; sourceTree = "<group>"; };
+		862B53892789D1D4003A1CF3 /* AddSeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSeedViewModel.swift; sourceTree = "<group>"; };
 		8668A7992784A9800054A28D /* NewAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountView.swift; sourceTree = "<group>"; };
 		867B1C4F2785C357001807B5 /* NewSeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSeedView.swift; sourceTree = "<group>"; };
 		867B1C512785DBEB001807B5 /* AddSeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSeedView.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				862B537F2788E197003A1CF3 /* NewAliasViewModel.swift */,
 				862B53852788FE10003A1CF3 /* NewAccountViewModel.swift */,
 				862B5387278900DA003A1CF3 /* NewSeedViewModel.swift */,
+				862B53892789D1D4003A1CF3 /* AddSeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				867B1C542785E28F001807B5 /* ViewExtensions.swift in Sources */,
 				862B53842788E981003A1CF3 /* NewAccount.swift in Sources */,
 				867B1C5A27875A63001807B5 /* Utils.swift in Sources */,
+				862B538A2789D1D4003A1CF3 /* AddSeedViewModel.swift in Sources */,
 				86B22C472780DD58008BED50 /* BalanceView.swift in Sources */,
 				867B1C5827875938001807B5 /* ReceiveView.swift in Sources */,
 				867B1C5627874EA1001807B5 /* PasswordView.swift in Sources */,

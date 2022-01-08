@@ -1,45 +1,60 @@
 import SwiftUI
 
-struct AddSeedView: View {
-    @State var words: [String] = Array(repeating: "", count: 24)
+struct AddSeedView<VM>: View where VM: IAddSeedViewModel {
+    
+    @StateObject var viewModel: VM
     
     var body: some View {
         VStack {
-            List(words.indices) { index in
+            List(viewModel.words.indices) { index in
                 HStack {
                     Text("\(index+1)")
                         .font(.title3)
                         .foregroundColor(.gray)
                         .frame(width: 30, alignment: .leading)
-                    TextField("", text: $words[index])
+                    TextField("", text: $viewModel.words[index])
                         .font(.title3)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                 }
             }
             ButtonView(title: "Paste all words", color: .orange) {
-                pasteWords()
+                viewModel.onPasteMnemonicSelected()
             }
             ButtonView(title: "Continue", color: .accentColor) {
-                
-            }.disabled(areWordsValid)
+                viewModel.onContinueSelected()
+            }.disabled(!areWordsValid)
+            NavigationLink(destination: viewModel.buildNextView(), isActive: $viewModel.goToNextView) { EmptyView() }
         }
         .navigationTitle("Mnemonic phrase")
     }
     
     private var areWordsValid: Bool {
-        return words.contains("") && words.count == Set(words).count
-    }
-    
-    private func pasteWords() {
-        for i in 0..<words.count {
-            words[i] = "\(i)"
-        }
+        return !viewModel.words.contains("") && viewModel.words.count == 24
     }
 }
 
 struct AddSeedView_Previews: PreviewProvider {
+    class _AddSeedViewModel: IAddSeedViewModel {
+        
+        @Published var status: ViewStatus = .data
+        @Published var words: [String] = Array(repeating: "", count: 24)
+        @Published var goToNextView: Bool = false
+        
+        func onPasteMnemonicSelected() {
+            (0..<words.count).forEach { words[$0] = "\($0)" }
+        }
+        
+        func onContinueSelected() {
+            goToNextView = true
+        }
+        func buildNextView() -> AnyView {
+            return AnyView(Text("OK"))
+        }
+    }
     static var previews: some View {
-        AddSeedView()
+        NavigationView {
+            AddSeedView(viewModel: _AddSeedViewModel())
+        }
     }
 }
