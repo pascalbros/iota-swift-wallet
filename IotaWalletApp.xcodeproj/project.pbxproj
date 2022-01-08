@@ -25,6 +25,8 @@
 		86A59E23278851A6004D31AF /* IOTAWallet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 86A59E21278851A6004D31AF /* IOTAWallet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		86A59E2627885390004D31AF /* IOTAWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 86A59E2527885390004D31AF /* IOTAWallet */; };
 		86AD95112789FABC0002F5CF /* BalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AD95102789FABC0002F5CF /* BalanceViewModel.swift */; };
+		86AD9513278A2F0F0002F5CF /* ReceiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AD9512278A2F0F0002F5CF /* ReceiveViewModel.swift */; };
+		86AD9515278A3B170002F5CF /* Bech32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AD9514278A3B170002F5CF /* Bech32.swift */; };
 		86B22C362780DA6E008BED50 /* IotaWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C352780DA6E008BED50 /* IotaWalletApp.swift */; };
 		86B22C382780DA6E008BED50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22C372780DA6E008BED50 /* ContentView.swift */; };
 		86B22C3A2780DA70008BED50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86B22C392780DA70008BED50 /* Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		867B1C5727875938001807B5 /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
 		867B1C5927875A63001807B5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		86AD95102789FABC0002F5CF /* BalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
+		86AD9512278A2F0F0002F5CF /* ReceiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewModel.swift; sourceTree = "<group>"; };
+		86AD9514278A3B170002F5CF /* Bech32.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bech32.swift; sourceTree = "<group>"; };
 		86B22C322780DA6E008BED50 /* IotaWalletApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IotaWalletApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B22C352780DA6E008BED50 /* IotaWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IotaWalletApp.swift; sourceTree = "<group>"; };
 		86B22C372780DA6E008BED50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				86B22C5A278210B3008BED50 /* Wallet.swift */,
 				867B1C532785E28F001807B5 /* ViewExtensions.swift */,
 				867B1C5927875A63001807B5 /* Utils.swift */,
+				86AD9514278A3B170002F5CF /* Bech32.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				862B5387278900DA003A1CF3 /* NewSeedViewModel.swift */,
 				862B53892789D1D4003A1CF3 /* AddSeedViewModel.swift */,
 				86AD95102789FABC0002F5CF /* BalanceViewModel.swift */,
+				86AD9512278A2F0F0002F5CF /* ReceiveViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 				86B22C4A2780E0A1008BED50 /* ColorExtensions.swift in Sources */,
 				867B1C542785E28F001807B5 /* ViewExtensions.swift in Sources */,
 				862B53842788E981003A1CF3 /* NewAccount.swift in Sources */,
+				86AD9513278A2F0F0002F5CF /* ReceiveViewModel.swift in Sources */,
 				867B1C5A27875A63001807B5 /* Utils.swift in Sources */,
 				862B538A2789D1D4003A1CF3 /* AddSeedViewModel.swift in Sources */,
 				86B22C472780DD58008BED50 /* BalanceView.swift in Sources */,
@@ -298,6 +305,7 @@
 				867B1C502785C357001807B5 /* NewSeedView.swift in Sources */,
 				86AD95112789FABC0002F5CF /* BalanceViewModel.swift in Sources */,
 				86B22C52278201BB008BED50 /* Account.swift in Sources */,
+				86AD9515278A3B170002F5CF /* Bech32.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

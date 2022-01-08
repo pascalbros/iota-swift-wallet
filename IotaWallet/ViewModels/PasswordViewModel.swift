@@ -17,6 +17,7 @@ class PasswordViewModel: IPasswordViewModel {
     @Published var goToNextView: Bool = false
     
     func onConfirm() {
+        print(Bech32.decode("atoi1qzyrjc5h39nzxlxxgvha45yfrkvvmw00hph08sr0tjfzdjp4mmn45mx8278")?.data)
         status = .loading
         AppWallet.setStrongholdPassword(password) { result in
             switch result {

@@ -12,7 +12,7 @@ struct MainView: View {
                     Label(titles[0], systemImage: "creditcard")
                 }
                 .tag(0)
-            ReceiveView()
+            ReceiveView(viewModel: ReceiveViewModel())
                 .tabItem {
                     Label(titles[1], systemImage: "banknote")
                 }
