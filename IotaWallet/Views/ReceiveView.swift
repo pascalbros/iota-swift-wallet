@@ -5,20 +5,18 @@ struct ReceiveView: View {
     @State var address: String? = "atoi1qzqjcfypqa4hwwpr0yw3vn93m4npjaaexhncpwdsu7x4zrj9mtkuyew5hjx"
     
     var body: some View {
-        NavigationView {
-            VStack {
-                if let _address = address {
-                    AddressReceiveView(address: _address) {
-                        let addr = address!
-                        address = nil
-                        DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
-                            address = addr
-                        }
+        VStack {
+            if let _address = address {
+                AddressReceiveView(address: _address) {
+                    let addr = address!
+                    address = nil
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
+                        address = addr
                     }
-                } else {
-                    ProgressView()
                 }
-            }.navigationTitle("Receive")
+            } else {
+                ProgressView()
+            }
         }
     }
 }

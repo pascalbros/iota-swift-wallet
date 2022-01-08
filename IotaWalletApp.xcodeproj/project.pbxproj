@@ -11,6 +11,8 @@
 		862B53802788E197003A1CF3 /* NewAliasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862B537F2788E197003A1CF3 /* NewAliasViewModel.swift */; };
 		862B53822788E1EA003A1CF3 /* NewAliasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862B53812788E1EA003A1CF3 /* NewAliasView.swift */; };
 		862B53842788E981003A1CF3 /* NewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862B53832788E981003A1CF3 /* NewAccount.swift */; };
+		862B53862788FE10003A1CF3 /* NewAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862B53852788FE10003A1CF3 /* NewAccountViewModel.swift */; };
+		862B5388278900DA003A1CF3 /* NewSeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862B5387278900DA003A1CF3 /* NewSeedViewModel.swift */; };
 		8668A79A2784A9800054A28D /* NewAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8668A7992784A9800054A28D /* NewAccountView.swift */; };
 		867B1C502785C357001807B5 /* NewSeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867B1C4F2785C357001807B5 /* NewSeedView.swift */; };
 		867B1C522785DBEB001807B5 /* AddSeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867B1C512785DBEB001807B5 /* AddSeedView.swift */; };
@@ -54,6 +56,8 @@
 		862B537F2788E197003A1CF3 /* NewAliasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAliasViewModel.swift; sourceTree = "<group>"; };
 		862B53812788E1EA003A1CF3 /* NewAliasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAliasView.swift; sourceTree = "<group>"; };
 		862B53832788E981003A1CF3 /* NewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccount.swift; sourceTree = "<group>"; };
+		862B53852788FE10003A1CF3 /* NewAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountViewModel.swift; sourceTree = "<group>"; };
+		862B5387278900DA003A1CF3 /* NewSeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSeedViewModel.swift; sourceTree = "<group>"; };
 		8668A7992784A9800054A28D /* NewAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountView.swift; sourceTree = "<group>"; };
 		867B1C4F2785C357001807B5 /* NewSeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSeedView.swift; sourceTree = "<group>"; };
 		867B1C512785DBEB001807B5 /* AddSeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSeedView.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				86B22C53278202E4008BED50 /* AccountViewModel.swift */,
 				862B537D2788D145003A1CF3 /* PasswordViewModel.swift */,
 				862B537F2788E197003A1CF3 /* NewAliasViewModel.swift */,
+				862B53852788FE10003A1CF3 /* NewAccountViewModel.swift */,
+				862B5387278900DA003A1CF3 /* NewSeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -264,7 +270,9 @@
 				862B53822788E1EA003A1CF3 /* NewAliasView.swift in Sources */,
 				8668A79A2784A9800054A28D /* NewAccountView.swift in Sources */,
 				862B537E2788D145003A1CF3 /* PasswordViewModel.swift in Sources */,
+				862B53862788FE10003A1CF3 /* NewAccountViewModel.swift in Sources */,
 				86B22C5B278210B3008BED50 /* Wallet.swift in Sources */,
+				862B5388278900DA003A1CF3 /* NewSeedViewModel.swift in Sources */,
 				86B22C5627820A10008BED50 /* ViewStatus.swift in Sources */,
 				867B1C522785DBEB001807B5 /* AddSeedView.swift in Sources */,
 				86B22C4E2781C167008BED50 /* AccountView.swift in Sources */,

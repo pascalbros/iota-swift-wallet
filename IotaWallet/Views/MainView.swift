@@ -1,21 +1,30 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    var titles = ["Balance", "Receive", "Send"]
+    @State var selection: Int = 0
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             BalanceView(balance: 256)
                 .tabItem {
-                    Label("Balance", systemImage: "creditcard")
+                    Label(titles[0], systemImage: "creditcard")
                 }
+                .tag(0)
             ReceiveView()
                 .tabItem {
-                    Label("Receive", systemImage: "banknote")
+                    Label(titles[1], systemImage: "banknote")
                 }
+                .tag(1)
             ContentView()
                 .tabItem {
-                    Label("Send", systemImage: "paperplane")
+                    Label(titles[2], systemImage: "paperplane")
                 }
+                .tag(2)
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationTitle(titles[selection])
     }
 }
 

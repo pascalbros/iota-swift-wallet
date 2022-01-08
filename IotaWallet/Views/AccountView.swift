@@ -28,15 +28,13 @@ struct SingleAccountView: View {
     @State var title: String
     var onSelected: () -> Void
     var body: some View {
-        NavigationView {
-            GenericAccountView(title: title,
-                               label: AnyView(
-                                    Text(String(title.first ?? "-"))
-                                    .font(.title.weight(.bold))
-                                    .foregroundColor(.white)),
-                               onSelected: onSelected)
-                                    .navigationTitle("Accounts")
-        }
+        GenericAccountView(title: title,
+                           label: AnyView(
+                                Text(String(title.first ?? "-"))
+                                .font(.title.weight(.bold))
+                                .foregroundColor(.white)),
+                           onSelected: onSelected)
+                                .navigationTitle("Accounts")
     }
 }
 

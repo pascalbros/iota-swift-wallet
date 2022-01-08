@@ -37,6 +37,6 @@ class AccountViewModel: IAccountViewModel {
     }
     
     func buildCreateAccount() -> AnyView {
-        AnyView(NewAccountView())
+        AnyView(NewAliasView(viewModel: NewAliasViewModel()))
     }
 }

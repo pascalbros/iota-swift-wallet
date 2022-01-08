@@ -15,10 +15,11 @@ class NewAliasViewModel: INewAliasViewModel {
     @Published var goToNextView: Bool = false
     
     func onConfirm() {
+        NewAccountInProgress.current.alias = alias
         goToNextView = true
     }
     
     func buildNextView() -> AnyView {
-        return AnyView(NewAccountView())
+        return AnyView(NewAccountView(viewModel: NewAccountViewModel()))
     }
 }
