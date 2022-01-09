@@ -28,7 +28,7 @@ struct CardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(Color.accentColor)
-                .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 0)
+                .shadow(color: .appText.opacity(0.3), radius: 10, x: 0, y: 0)
             VStack {
                 Text(title)
                     .foregroundColor(.white)

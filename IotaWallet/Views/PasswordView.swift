@@ -11,11 +11,11 @@ struct PasswordView<VM>: View where VM: IPasswordViewModel {
             } else {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .stroke(.black)
+                        .stroke(Color.appText)
                         .frame(height: 80, alignment: .center)
                     SecureField("Stronghold password", text: $viewModel.password)
                         .textFieldStyle(PlainTextFieldStyle())
-                        .foregroundColor(.black)
+                        .foregroundColor(.appText)
                         .font(.title3)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)

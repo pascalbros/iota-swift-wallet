@@ -7,11 +7,11 @@ struct NewAliasView<VM>: View where VM: INewAliasViewModel {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .stroke(.black)
+                    .stroke(Color.appText)
                     .frame(height: 80, alignment: .center)
                 TextField("Type your account alias", text: $viewModel.alias)
                     .textFieldStyle(PlainTextFieldStyle())
-                    .foregroundColor(.black)
+                    .foregroundColor(.appText)
                     .font(.title3)
                     .autocapitalization(.words)
                     .disableAutocorrection(true)

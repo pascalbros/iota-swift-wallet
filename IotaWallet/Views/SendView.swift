@@ -30,13 +30,13 @@ struct SendView<VM>: View where VM: ISendViewModel {
             }.padding(EdgeInsets(top: 10, leading: 16, bottom: -18, trailing: 16))
             ZStack {
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .stroke(.black)
+                    .stroke(Color.appText)
                     .frame(height: 80, alignment: .center)
                 HStack {
                     TextField("Amount in Mi", text: $viewModel.amount)
                         .textFieldStyle(PlainTextFieldStyle())
                         .keyboardType(.numberPad)
-                        .foregroundColor(.black)
+                        .foregroundColor(.appText)
                         .font(.title)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
