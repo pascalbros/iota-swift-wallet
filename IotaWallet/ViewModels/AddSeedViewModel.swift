@@ -17,7 +17,7 @@ class AddSeedViewModel: IAddSeedViewModel {
     @Published var goToNextView: Bool = false
     
     func onPasteMnemonicSelected() {
-        let currentWords = (UIPasteboard.general.string ?? "season body fog frost focus size journey glimpse size shed blanket jewel wood access kind useful visa peanut midnight extra margin sentence column diesel").split(separator: " ")
+        let currentWords = (UIPasteboard.general.string ?? "").split(separator: " ")
         guard currentWords.count == 24 else { return }
         words = currentWords.map { String($0) }
     }

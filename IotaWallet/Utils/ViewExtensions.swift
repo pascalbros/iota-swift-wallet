@@ -4,11 +4,12 @@ import UIKit
 struct ButtonView: View {
     @State var title: String
     @State var color: Color
+    @State var height: CGFloat = 60
     var onSelected: () -> Void
     var body: some View {
         Button(title, action: onSelected)
             .font(.system(size: 17, weight: Font.Weight.bold))
-            .frame(minWidth: 100, maxWidth: .infinity, minHeight: 60, alignment: .center)
+            .frame(minWidth: 100, maxWidth: .infinity, minHeight: height, alignment: .center)
             .foregroundColor(.white)
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))

@@ -17,7 +17,7 @@ struct MainView: View {
                     Label(titles[1], systemImage: "banknote")
                 }
                 .tag(1)
-            ContentView()
+            SendView(viewModel: SendViewModel())
                 .tabItem {
                     Label(titles[2], systemImage: "paperplane")
                 }
