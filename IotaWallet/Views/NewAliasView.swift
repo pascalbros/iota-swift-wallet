@@ -21,7 +21,7 @@ struct NewAliasView<VM>: View where VM: INewAliasViewModel {
                 viewModel.onConfirm()
             }.disabled(viewModel.alias.count < 3 && viewModel.alias.count < 30)
             Text("The alias will be associated to your seed")
-                .padding()
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 .font(.subheadline)
             Spacer()
             NavigationLink(destination: viewModel.buildNextView(), isActive: $viewModel.goToNextView) { EmptyView() }

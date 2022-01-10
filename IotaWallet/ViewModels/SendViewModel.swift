@@ -26,6 +26,15 @@ class SendViewModel: ISendViewModel {
     }
     @Published var canSend: Bool = false
     func onSendSelected() {
+        updateCanSend()
+        guard canSend else { return }
+        guard let theAmount = Int(amount) else { return }
+        status = .loading
+        let convertedAmount = Int(IotaUnitsConverter.convert(amount: Double(theAmount), fromUnit: .Mi, toUnit: .i))
+        print(convertedAmount)
+//        AppAccount?.sendTransfer(address: address, amount: convertedAmount, options: nil, onResult: { result in
+//
+//        })
     }
     
     func onPasteSelected() {

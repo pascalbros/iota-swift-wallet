@@ -26,7 +26,7 @@ struct PasswordView<VM>: View where VM: IPasswordViewModel {
                 }.disabled(viewModel.password.count < 3)
             }
             Text("A password is needed in order to unlock the wallet, if it's your first time, type a new one")
-                .padding()
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 .font(.subheadline)
             Spacer()
             NavigationLink(destination: viewModel.buildNextView(), isActive: $viewModel.goToNextView) { EmptyView() }
