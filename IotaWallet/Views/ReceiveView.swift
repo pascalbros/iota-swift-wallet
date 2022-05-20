@@ -1,48 +1,49 @@
 import SwiftUI
 
-struct ReceiveView: View {
+struct ReceiveView<VM>: View where VM: IReceiveViewModel {
     
-    @State var address: String? = "atoi1qzqjcfypqa4hwwpr0yw3vn93m4npjaaexhncpwdsu7x4zrj9mtkuyew5hjx"
+    @StateObject var viewModel: VM
     
     var body: some View {
-        NavigationView {
-            VStack {
-                if let _address = address {
-                    AddressReceiveView(address: _address) {
-                        let addr = address!
-                        address = nil
-                        DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
-                            address = addr
-                        }
-                    }
-                } else {
-                    ProgressView()
+        VStack {
+            if viewModel.status == .loading {
+                ProgressView()
+            } else {
+                AddressReceiveView(viewModel: viewModel) {
+                    viewModel.onReload()
                 }
-            }.navigationTitle("Receive")
+            }
+        }.onAppear {
+            viewModel.onReload()
         }
     }
 }
 
-private struct AddressReceiveView: View {
+private struct AddressReceiveView<VM>: View where VM: IReceiveViewModel {
     
-    @State var address: String
+    @StateObject var viewModel: VM
+    
     var onReload: () -> Void
     
     var body: some View {
         VStack {
-            Image(uiImage: Utils.generateQRCode(from: address))
-                .interpolation(.none)
-                .resizable()
-                .scaledToFit()
-                .frame(width: .infinity, height: 200)
-            Text(address)
+            if let qrCode = viewModel.qrCode {
+                Image(uiImage: qrCode)
+                    .interpolation(.none)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+            } else {
+                ProgressView().padding()
+            }
+            Text(viewModel.address)
                 .font(.title3)
                 .frame(alignment: .center)
                 .multilineTextAlignment(.center)
                 .padding()
                 .contextMenu {
                         Button(action: {
-                            UIPasteboard.general.string = address
+                            UIPasteboard.general.string = viewModel.address
                         }) {
                             Text("Copy to clipboard")
                             Image(systemName: "doc.on.doc")
@@ -57,7 +58,30 @@ private struct AddressReceiveView: View {
 
 
 struct ReceiveView_Previews: PreviewProvider {
+    class _ReceiveViewModel: IReceiveViewModel {
+        
+        @Published var status: ViewStatus = .data
+        @Published var address: String = ""
+        @Published var qrCode: UIImage?
+        
+        func onReload() {
+            self.status = .loading
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.status = .data
+                self.address = "atoi1qzqjcfypqa4hwwpr0yw3vn93m4npjaaexhncpwdsu7x4zrj9mtkuyew5hjx"
+                self.generateQRCode()
+            }
+        }
+        
+        func generateQRCode() {
+            qrCode = nil
+            DispatchQueue.main.async {
+                self.qrCode = Utils.generateQRCode(from: self.address)
+            }
+        }
+    }
+    
     static var previews: some View {
-        ReceiveView().preferredColorScheme(.light)
+        ReceiveView(viewModel: _ReceiveViewModel()).preferredColorScheme(.light)
     }
 }

@@ -18,4 +18,8 @@ class Utils {
 
         return UIImage(systemName: "xmark.circle") ?? UIImage()
     }
+    
+    static func endTextEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }

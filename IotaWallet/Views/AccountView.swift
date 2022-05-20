@@ -3,20 +3,25 @@ import SwiftUI
 struct AccountView<VM>: View where VM: IAccountViewModel {
     @StateObject var viewModel: VM
     var body: some View {
-        switch viewModel.status {
-        case .loading:
-            ProgressView()
-        default:
-            if let account = viewModel.account {
-                SingleAccountView(title: account.name) {
-                    print("Selected \(account.name)")
-                }
-            } else {
-                NoAccountView() {
-                    viewModel.createAccount()
+        VStack {
+            switch viewModel.status {
+            case .loading:
+                ProgressView()
+            default:
+                if let account = viewModel.account {
+                    SingleAccountView(title: account.name) {
+                        viewModel.onAccountSelected()
+                    }
+                } else {
+                    NoAccountView() {
+                        viewModel.onCreateAccountSelected()
+                    }
                 }
             }
+            NavigationLink(destination: viewModel.buildCreateAccount(), isActive: $viewModel.goToCreateAccount) { EmptyView() }
+            NavigationLink(destination: viewModel.buildAccount(), isActive: $viewModel.goToAccount) { EmptyView() }
         }
+        .navigationBarHidden(true)
     }
 }
 
@@ -24,15 +29,13 @@ struct SingleAccountView: View {
     @State var title: String
     var onSelected: () -> Void
     var body: some View {
-        NavigationView {
-            GenericAccountView(title: title,
-                               label: AnyView(
-                                    Text(String(title.first ?? "-"))
-                                    .font(.title.weight(.bold))
-                                    .foregroundColor(.white)),
-                               onSelected: onSelected)
-                                    .navigationTitle("Accounts")
-        }
+        GenericAccountView(title: title,
+                           label: AnyView(
+                                Text(String(title.first ?? "-"))
+                                .font(.title.weight(.bold))
+                                .foregroundColor(.white)),
+                           onSelected: onSelected)
+                                .navigationTitle("Accounts")
     }
 }
 
@@ -72,11 +75,26 @@ struct GenericAccountView: View {
 struct AccountView_Previews: PreviewProvider {
     
     class _AccountViewModel: IAccountViewModel {
-        var account: Account? = Account(name: "Pascal")
-        var status: ViewStatus = .data
-        func createAccount() { }
+        @Published var goToCreateAccount: Bool = false
+        @Published var goToAccount: Bool = false
+        @Published var account: Account? = nil//Account(name: "Pascal")
+        @Published var status: ViewStatus = .data
+        func onCreateAccountSelected() {
+            goToAccount = true
+        }
+        func onAccountSelected() {
+            goToCreateAccount = true
+        }
+        func buildCreateAccount() -> AnyView {
+            AnyView(Text("New account"))
+        }
+        func buildAccount() -> AnyView {
+            AnyView(Text("Account"))
+        }
     }
     static var previews: some View {
-        AccountView(viewModel: _AccountViewModel()).preferredColorScheme(.light)
+        NavigationView {
+            AccountView(viewModel: _AccountViewModel()).preferredColorScheme(.light)
+        }.navigationBarHidden(true)
     }
 }
