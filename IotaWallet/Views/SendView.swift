@@ -4,7 +4,7 @@ struct SendView<VM>: View where VM: ISendViewModel {
     
     @StateObject var viewModel: VM
     @State var progress: CGFloat = 0
-    
+
     var body: some View {
         VStack {
             if viewModel.status == .loading {
@@ -72,26 +72,38 @@ struct SendView<VM>: View where VM: ISendViewModel {
                 //NavigationLink(destination: viewModel.buildNextView(), isActive: $viewModel.goToNextView) { EmptyView() }
             }
         }
+        .alert(isPresented: Binding(get: { viewModel.presentAlert }, set: { _,_ in })) {
+            viewModel.alert
+        }
+        .onTapGesture {
+            Utils.endTextEditing()
+        }
     }
 }
-
 struct SendView_Previews: PreviewProvider {
     class _SendViewModel: ISendViewModel {
-        
         @Published var status: ViewStatus = .data
         @Published var address: String = ""
         @Published var amount: String = ""
         @Published var canSend: Bool = true
+        @Published var presentAlert: Bool = false
+        var alert: Alert!
 
         func onSendSelected() {
             status = .loading
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.status = .data
+                self.alert = Alert(title: Text("OK"), message: Text("Cool!"), dismissButton: .default(Text("OK"), action: {
+                    self.onSuccessMessageSelected()
+                }))
+                self.presentAlert = true
             }
         }
         
-        func onPasteSelected() {
-            
+        func onPasteSelected() { }
+        func onErrorMessageSelected() { }
+        func onSuccessMessageSelected() {
+            presentAlert = false
         }
     }
     

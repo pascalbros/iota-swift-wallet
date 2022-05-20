@@ -7,8 +7,12 @@ protocol ISendViewModel: ObservableObject {
     var address: String { get }
     var amount: String { get set }
     var canSend: Bool { get }
+    var presentAlert: Bool { get }
+    var alert: Alert! { get }
     func onSendSelected()
     func onPasteSelected()
+    func onErrorMessageSelected()
+    func onSuccessMessageSelected()
 }
 
 class SendViewModel: ISendViewModel {
@@ -25,16 +29,22 @@ class SendViewModel: ISendViewModel {
         }
     }
     @Published var canSend: Bool = false
+    @Published var presentAlert: Bool = false
+    var alert: Alert!
+
     func onSendSelected() {
+        Utils.endTextEditing()
         updateCanSend()
         guard canSend else { return }
         guard let theAmount = Int(amount) else { return }
         status = .loading
         let convertedAmount = Int(IotaUnitsConverter.convert(amount: Double(theAmount), fromUnit: .Mi, toUnit: .i))
-        print(convertedAmount)
-//        AppAccount?.sendTransfer(address: address, amount: convertedAmount, options: nil, onResult: { result in
-//
-//        })
+        AppAccount?.sendTransfer(address: address, amount: convertedAmount, options: nil, onResult: { result in
+            switch result {
+            case .success: self.onTransactionSucceded()
+            case .failure: self.onTransactionError()
+            }
+        })
     }
     
     func onPasteSelected() {
@@ -44,6 +54,17 @@ class SendViewModel: ISendViewModel {
         #endif
         guard Bech32.decode(theAddress) != nil else { return }
         address = theAddress
+        Utils.endTextEditing()
+    }
+
+    func onErrorMessageSelected() {
+        status = .data
+        presentAlert = false
+    }
+
+    func onSuccessMessageSelected() {
+        status = .data
+        presentAlert = false
     }
     
     fileprivate var isValidAmount: Bool {
@@ -55,5 +76,23 @@ class SendViewModel: ISendViewModel {
     
     fileprivate func updateCanSend() {
         canSend = isValidAmount && !address.isEmpty
+    }
+    
+    fileprivate func onTransactionSucceded() {
+        address = ""
+        amount = ""
+        status = .data
+        alert = Alert(title: Text("Success!"), message: Text("✅ Transaction executed succesfully!"), dismissButton: .default(Text("OK"), action: {
+            self.onSuccessMessageSelected()
+        }))
+        presentAlert = true
+    }
+
+    fileprivate func onTransactionError() {
+        status = .error
+        alert = Alert(title: Text("Transaction error"), message: Text("❌ Unable to complete the transaction"), dismissButton: .default(Text("OK"), action: {
+            self.onErrorMessageSelected()
+        }))
+        presentAlert = true
     }
 }
